@@ -1,0 +1,37 @@
+<?php
+    $title = "Carros";
+    $this->headTitle($title);
+?>
+<h2>Lista de Carros</h2>
+<hr/>
+<div class="table-responsive">
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>...</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($carros as $car) :
+                ?>
+                    <tr>
+                        <td><?= $car->getId() ?></td>
+                        <td><?= $car->getNome() ?></td>
+                        <td><?= $car->getMarca() ?></td>
+                        <td>
+                            <a href="<?=$this->url('carro',['action'=>'editar','id'=>$car->getId()])?>" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+                            <a href="<?=$this->url('carro',['action'=>'remover','id'=>$car->getId()])?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Remover</a>
+                        </td>
+                    </tr>
+                <?php
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+</div>
+<a href="<?= $this->url('carro', ['action' => 'adicionar']) ?>" class="btn btn-success"> <i class="glyphicon glyphicon-plus"></i> 
+    Adicionar</a>

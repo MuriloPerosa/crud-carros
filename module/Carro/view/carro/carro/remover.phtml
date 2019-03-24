@@ -1,0 +1,15 @@
+<?php
+$title = "Remover Carro";
+$this->headTitle($title);
+?>
+<h3><?=$this->escapeHtml($title)?></h3>
+<hr/>
+    <h3>Você deseja realmente excluir "<?=$this->escapeHtml($carro->getNome())?>"?</h3>
+<br/>
+<form method="post" action="<?=$this->url('carro',['action'=>'remover','id'=>$id])?>">
+    <div class="form-group">
+        <input type="hidden" name="id" value="<?=$id?>">
+        <input type="submit" class="btn btn-danger" name="del" value="Sim"/>
+        <input type="submit" class="btn btn-success" name="del" value="Não"/>
+    </div>
+</form>

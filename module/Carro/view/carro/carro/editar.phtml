@@ -1,0 +1,51 @@
+<?php
+$title = "Editar Carro";
+$this->headTitle($title);
+?>
+
+<?php
+$form->setAttribute('action',$this->url('carro',['action'=>'editar', 'id'=>$id]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+$id = $this->form->get('id');
+$nome = $this->form->get('nome');
+$marca = $this->form->get('marca');
+
+$nome->setAttribute('class','form-control');
+$marca->setAttribute('class','form-control');
+
+$submit = $this->form->get('submit');
+$submit->setAttribute('class','btn btn-success form-control');
+?>
+      <?=$this->formElement($id)?>
+
+<div class="form-group">
+    <div class="col-md-12">
+        <h2><?=$this->escapeHtml($title)?></h2>
+        <hr/>
+    </div>
+    <div class="col-md-12">
+        <?=$this->formLabel($nome)?>
+        <?=$this->formElement($nome)?>
+        <?=$this->formElementErrors()->render($nome,['class'=>'help-block'])?>
+        <br/>
+    </div>
+
+    <div class="col-md-12">
+        <?=$this->formLabel($marca)?>
+        <?=$this->formElement($marca)?>
+        <?=$this->formElementErrors()->render($marca,['class'=>'help-block'])?>
+    </div>
+    <div class="col-md-12">
+        <hr/>
+        <?=$this->formElement($submit)?>
+    </div>
+    <div class="col-md-12">
+        <hr/>
+        <a href="<?=$this->url('carro',['action'=>'index'])?>" class="btn btn-danger form-control">Voltar</a>
+        <hr/>
+        <br/>
+    </div>
+</div>

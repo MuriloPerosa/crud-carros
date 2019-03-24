@@ -1,0 +1,4 @@
+Passos para criação da base de dados:
+
+1 - No MySQL criar um banco de dados chamado: zendexemplo
+2 - Executar o arquivo db.sql
