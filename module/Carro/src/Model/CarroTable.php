@@ -3,6 +3,7 @@
 namespace Carro\Model;
 
 use Zend\Db\TableGateway\TableGatewayInterface;
+use Zend\Db\Sql\Select;
 use RuntimeException;
 
 class CarroTable {
@@ -28,6 +29,16 @@ class CarroTable {
         }
         return $row;
     }
+
+    public function getCarrosByNome($nm) {
+        $nome = (string) $nm;
+        $rowset =  $this->tableGateway->select(function (Select $select) use ($nome) {
+            $select->where->like('nome', '%'.$nome.'%');
+        });
+        return $rowset;
+    }
+
+
 
     //Salva um carro na tabela
     //Se (id == 0) - Insert

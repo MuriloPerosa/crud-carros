@@ -15,7 +15,18 @@ class CarroController extends AbstractActionController {
     }
 
     public function indexAction() {
-        return new ViewModel(['carros' => $this->table->getAll()]);
+       
+        if(isset($_GET['q'])){
+            $q = $_GET['q'];
+           
+            if(empty($q)){
+                return new ViewModel(['carros' => $this->table->getAll()]);
+            }else{
+                return new ViewModel(['carros' => $this->table->getCarrosByNome($q)]);
+            }
+        }else{
+            return new ViewModel(['carros' => $this->table->getAll()]);
+        }
     }
 
     public function adicionarAction() {

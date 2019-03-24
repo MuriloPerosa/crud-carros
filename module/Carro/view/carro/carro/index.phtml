@@ -4,6 +4,20 @@
 ?>
 <h2>Lista de Carros</h2>
 <hr/>
+
+<div class="row">
+<form action="/carro" method="get">
+
+    <div class="row container">
+        <div class="col-md-4">
+            <input type="text" name="q" class="form-control" placeholder="Pesquisar por nome ...">
+        </div>
+            <input type="submit" value="Pesquisar" class="btn btn-success">
+    </div>
+    <br/>
+</form>
+</div>
+
 <div class="table-responsive">
     <table class="table table-stripped">
         <thead>
@@ -11,7 +25,7 @@
                 <th>Código</th>
                 <th>Nome</th>
                 <th>Marca</th>
-                <th>...</th>
+                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
